@@ -1,5 +1,5 @@
 #include "AppDelegate.h"
-#include "HelloWorldScene.h"
+#include "MenuScene.h"
 
 USING_NS_CC;
 
@@ -8,7 +8,8 @@ static cocos2d::Size smallResolutionSize = cocos2d::Size(480, 320);
 static cocos2d::Size mediumResolutionSize = cocos2d::Size(1024, 768);
 static cocos2d::Size largeResolutionSize = cocos2d::Size(2048, 1536);
 
-AppDelegate::AppDelegate() {
+AppDelegate::AppDelegate()
+{
 
 }
 
@@ -34,7 +35,34 @@ static int register_all_packages()
     return 0; //flag for packages manager
 }
 
-bool AppDelegate::applicationDidFinishLaunching() {
+bool AppDelegate::applicationDidFinishLaunching()
+{
+    // Directorの初期化
+    auto director = Director::getInstance();
+    auto glView = director->getOpenGLView();
+    if(!glView){
+        glView = GLViewImpl::create("My Game");
+        director->setOpenGLView(glView);
+    }
+    
+    // ゲームの仮想画面のサイズを設定する
+    glView->setDesignResolutionSize(480, 320, ResolutionPolicy::SHOW_ALL);
+    
+    // ディスプレイへのFPS表示を許可
+    director->setDisplayStats(true);
+    
+    // ゲームのFSPを設定
+    director->setAnimationInterval(1.0 / 60.0);
+    
+    // メニューシーンを表示する
+    auto scene = MenuScene::createScene();
+    
+    // 実行
+    director->runWithScene(scene);
+    
+    return true;
+}
+    /*
     // initialize director
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
@@ -81,10 +109,11 @@ bool AppDelegate::applicationDidFinishLaunching() {
     director->runWithScene(scene);
 
     return true;
-}
+     */
 
 // This function will be called when the app is inactive. When comes a phone call,it's be invoked too
-void AppDelegate::applicationDidEnterBackground() {
+void AppDelegate::applicationDidEnterBackground()
+{
     Director::getInstance()->stopAnimation();
 
     // if you use SimpleAudioEngine, it must be pause
@@ -92,7 +121,8 @@ void AppDelegate::applicationDidEnterBackground() {
 }
 
 // this function will be called when the app is active again
-void AppDelegate::applicationWillEnterForeground() {
+void AppDelegate::applicationWillEnterForeground()
+{
     Director::getInstance()->startAnimation();
 
     // if you use SimpleAudioEngine, it must resume here
