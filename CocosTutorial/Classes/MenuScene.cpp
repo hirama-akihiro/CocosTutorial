@@ -1,4 +1,5 @@
 #include "MenuScene.h"
+#include "PlayScene.h"
 
 USING_NS_CC;
 
@@ -113,4 +114,7 @@ void MenuScene::menuCloseCallback(Ref* pSender)
 void MenuScene::onPlay(Ref* pSender)
 {
     log("==onPlay clicked");
+    
+    auto playScene = PlayScene::createScene();
+    Director::getInstance()->replaceScene(playScene);
 }

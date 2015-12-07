@@ -59,11 +59,17 @@
 		521A8EA919F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		521A8EAA19F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
+		59E04A211C14B95E008267B2 /* BackGroundLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59E04A1F1C14B95E008267B2 /* BackGroundLayer.cpp */; };
+		59E04A241C14B99D008267B2 /* GamePlayerLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59E04A231C14B99D008267B2 /* GamePlayerLayer.cpp */; };
+		59E04A271C14B9C1008267B2 /* StatusLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59E04A261C14B9C1008267B2 /* StatusLayer.cpp */; };
 		59FAB92A1C148DEA00BF754B /* favicon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 59FAB9261C148DEA00BF754B /* favicon.ico */; };
 		59FAB92B1C148DEA00BF754B /* helloBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 59FAB9271C148DEA00BF754B /* helloBG.png */; };
 		59FAB92C1C148DEA00BF754B /* start_n.png in Resources */ = {isa = PBXBuildFile; fileRef = 59FAB9281C148DEA00BF754B /* start_n.png */; };
 		59FAB92D1C148DEA00BF754B /* start_s.png in Resources */ = {isa = PBXBuildFile; fileRef = 59FAB9291C148DEA00BF754B /* start_s.png */; };
 		59FAB9361C14A72D00BF754B /* MenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59FAB9351C14A72D00BF754B /* MenuScene.cpp */; };
+		59FAB9391C14B06000BF754B /* PlayBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 59FAB9371C14B06000BF754B /* PlayBG.png */; };
+		59FAB93A1C14B06000BF754B /* runner.png in Resources */ = {isa = PBXBuildFile; fileRef = 59FAB9381C14B06000BF754B /* runner.png */; };
+		59FAB93C1C14B0A000BF754B /* PlayScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59FAB93B1C14B0A000BF754B /* PlayScene.cpp */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
@@ -158,12 +164,22 @@
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		521A8EA819F11F5000D177D7 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		59E04A1F1C14B95E008267B2 /* BackGroundLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BackGroundLayer.cpp; sourceTree = "<group>"; };
+		59E04A221C14B976008267B2 /* BackGroundLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackGroundLayer.h; sourceTree = "<group>"; };
+		59E04A231C14B99D008267B2 /* GamePlayerLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GamePlayerLayer.cpp; sourceTree = "<group>"; };
+		59E04A251C14B9A9008267B2 /* GamePlayerLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GamePlayerLayer.h; sourceTree = "<group>"; };
+		59E04A261C14B9C1008267B2 /* StatusLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StatusLayer.cpp; sourceTree = "<group>"; };
+		59E04A281C14B9CC008267B2 /* StatusLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusLayer.h; sourceTree = "<group>"; };
 		59FAB9261C148DEA00BF754B /* favicon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = favicon.ico; sourceTree = "<group>"; };
 		59FAB9271C148DEA00BF754B /* helloBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helloBG.png; sourceTree = "<group>"; };
 		59FAB9281C148DEA00BF754B /* start_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start_n.png; sourceTree = "<group>"; };
 		59FAB9291C148DEA00BF754B /* start_s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start_s.png; sourceTree = "<group>"; };
 		59FAB9331C1496C900BF754B /* MenuScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuScene.h; sourceTree = "<group>"; };
 		59FAB9351C14A72D00BF754B /* MenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuScene.cpp; sourceTree = "<group>"; };
+		59FAB9371C14B06000BF754B /* PlayBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayBG.png; sourceTree = "<group>"; };
+		59FAB9381C14B06000BF754B /* runner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = runner.png; sourceTree = "<group>"; };
+		59FAB93B1C14B0A000BF754B /* PlayScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayScene.cpp; sourceTree = "<group>"; };
+		59FAB93D1C14B0B000BF754B /* PlayScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayScene.h; sourceTree = "<group>"; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -295,6 +311,8 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				59FAB9371C14B06000BF754B /* PlayBG.png */,
+				59FAB9381C14B06000BF754B /* runner.png */,
 				59FAB9261C148DEA00BF754B /* favicon.ico */,
 				59FAB9271C148DEA00BF754B /* helloBG.png */,
 				59FAB9281C148DEA00BF754B /* start_n.png */,
@@ -312,12 +330,20 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				59FAB9351C14A72D00BF754B /* MenuScene.cpp */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
 				46880B8719C43A87006E1F66 /* HelloWorldScene.h */,
 				59FAB9331C1496C900BF754B /* MenuScene.h */,
+				59FAB9351C14A72D00BF754B /* MenuScene.cpp */,
+				59FAB93B1C14B0A000BF754B /* PlayScene.cpp */,
+				59FAB93D1C14B0B000BF754B /* PlayScene.h */,
+				59E04A1F1C14B95E008267B2 /* BackGroundLayer.cpp */,
+				59E04A221C14B976008267B2 /* BackGroundLayer.h */,
+				59E04A231C14B99D008267B2 /* GamePlayerLayer.cpp */,
+				59E04A251C14B9A9008267B2 /* GamePlayerLayer.h */,
+				59E04A261C14B9C1008267B2 /* StatusLayer.cpp */,
+				59E04A281C14B9CC008267B2 /* StatusLayer.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -416,6 +442,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
+				TargetAttributes = {
+					1D6058900D05DD3D006BFB54 = {
+						DevelopmentTeam = DH5AARV92F;
+					};
+				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "CocosTutorial" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -477,6 +508,7 @@
 				59FAB92C1C148DEA00BF754B /* start_n.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
+				59FAB93A1C14B06000BF754B /* runner.png in Resources */,
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
@@ -489,6 +521,7 @@
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
+				59FAB9391C14B06000BF754B /* PlayBG.png in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
 				46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
@@ -516,11 +549,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				59E04A211C14B95E008267B2 /* BackGroundLayer.cpp in Sources */,
 				59FAB9361C14A72D00BF754B /* MenuScene.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
+				59FAB93C1C14B0A000BF754B /* PlayScene.cpp in Sources */,
+				59E04A271C14B9C1008267B2 /* StatusLayer.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				59E04A241C14B99D008267B2 /* GamePlayerLayer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,6 +592,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				ENABLE_BITCODE = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -580,6 +618,7 @@
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
 				);
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";
@@ -592,6 +631,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				ENABLE_BITCODE = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -615,6 +655,7 @@
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
 				);
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";
