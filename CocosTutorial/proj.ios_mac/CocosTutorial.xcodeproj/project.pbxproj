@@ -62,6 +62,8 @@
 		59E04A211C14B95E008267B2 /* BackGroundLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59E04A1F1C14B95E008267B2 /* BackGroundLayer.cpp */; };
 		59E04A241C14B99D008267B2 /* GamePlayerLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59E04A231C14B99D008267B2 /* GamePlayerLayer.cpp */; };
 		59E04A271C14B9C1008267B2 /* StatusLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59E04A261C14B9C1008267B2 /* StatusLayer.cpp */; };
+		59E04A2B1C1757A3008267B2 /* running.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E04A2A1C1757A3008267B2 /* running.png */; };
+		59E04A2D1C1757B7008267B2 /* running.plist in Resources */ = {isa = PBXBuildFile; fileRef = 59E04A2C1C1757B7008267B2 /* running.plist */; };
 		59FAB92A1C148DEA00BF754B /* favicon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 59FAB9261C148DEA00BF754B /* favicon.ico */; };
 		59FAB92B1C148DEA00BF754B /* helloBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 59FAB9271C148DEA00BF754B /* helloBG.png */; };
 		59FAB92C1C148DEA00BF754B /* start_n.png in Resources */ = {isa = PBXBuildFile; fileRef = 59FAB9281C148DEA00BF754B /* start_n.png */; };
@@ -170,6 +172,8 @@
 		59E04A251C14B9A9008267B2 /* GamePlayerLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GamePlayerLayer.h; sourceTree = "<group>"; };
 		59E04A261C14B9C1008267B2 /* StatusLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StatusLayer.cpp; sourceTree = "<group>"; };
 		59E04A281C14B9CC008267B2 /* StatusLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusLayer.h; sourceTree = "<group>"; };
+		59E04A2A1C1757A3008267B2 /* running.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = running.png; sourceTree = "<group>"; };
+		59E04A2C1C1757B7008267B2 /* running.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = running.plist; sourceTree = "<group>"; };
 		59FAB9261C148DEA00BF754B /* favicon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = favicon.ico; sourceTree = "<group>"; };
 		59FAB9271C148DEA00BF754B /* helloBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helloBG.png; sourceTree = "<group>"; };
 		59FAB9281C148DEA00BF754B /* start_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start_n.png; sourceTree = "<group>"; };
@@ -311,6 +315,8 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				59E04A2C1C1757B7008267B2 /* running.plist */,
+				59E04A2A1C1757A3008267B2 /* running.png */,
 				59FAB9371C14B06000BF754B /* PlayBG.png */,
 				59FAB9381C14B06000BF754B /* runner.png */,
 				59FAB9261C148DEA00BF754B /* favicon.ico */,
@@ -503,6 +509,7 @@
 				59FAB92B1C148DEA00BF754B /* helloBG.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
+				59E04A2D1C1757B7008267B2 /* running.plist in Resources */,
 				46880B8119C43A67006E1F66 /* HelloWorld.png in Resources */,
 				46880B7D19C43A67006E1F66 /* CloseSelected.png in Resources */,
 				59FAB92C1C148DEA00BF754B /* start_n.png in Resources */,
@@ -511,6 +518,7 @@
 				59FAB93A1C14B06000BF754B /* runner.png in Resources */,
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
+				59E04A2B1C1757A3008267B2 /* running.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
