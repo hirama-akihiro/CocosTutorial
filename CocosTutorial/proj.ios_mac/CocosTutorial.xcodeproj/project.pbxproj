@@ -59,6 +59,8 @@
 		521A8EA919F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		521A8EAA19F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
+		599822A91C2948A4007137CC /* Global.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 599822A81C2948A4007137CC /* Global.cpp */; };
+		599822AA1C3027DC007137CC /* GamePlayerLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59E04A231C14B99D008267B2 /* GamePlayerLayer.cpp */; };
 		59E04A211C14B95E008267B2 /* BackGroundLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59E04A1F1C14B95E008267B2 /* BackGroundLayer.cpp */; };
 		59E04A241C14B99D008267B2 /* GamePlayerLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59E04A231C14B99D008267B2 /* GamePlayerLayer.cpp */; };
 		59E04A271C14B9C1008267B2 /* StatusLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59E04A261C14B9C1008267B2 /* StatusLayer.cpp */; };
@@ -166,6 +168,8 @@
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		521A8EA819F11F5000D177D7 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		599822A71C29478C007137CC /* Global.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
+		599822A81C2948A4007137CC /* Global.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Global.cpp; sourceTree = "<group>"; };
 		59E04A1F1C14B95E008267B2 /* BackGroundLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BackGroundLayer.cpp; sourceTree = "<group>"; };
 		59E04A221C14B976008267B2 /* BackGroundLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackGroundLayer.h; sourceTree = "<group>"; };
 		59E04A231C14B99D008267B2 /* GamePlayerLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GamePlayerLayer.cpp; sourceTree = "<group>"; };
@@ -350,6 +354,8 @@
 				59E04A251C14B9A9008267B2 /* GamePlayerLayer.h */,
 				59E04A261C14B9C1008267B2 /* StatusLayer.cpp */,
 				59E04A281C14B9CC008267B2 /* StatusLayer.h */,
+				599822A71C29478C007137CC /* Global.h */,
+				599822A81C2948A4007137CC /* Global.cpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -559,6 +565,7 @@
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				59E04A211C14B95E008267B2 /* BackGroundLayer.cpp in Sources */,
 				59FAB9361C14A72D00BF754B /* MenuScene.cpp in Sources */,
+				599822A91C2948A4007137CC /* Global.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				59FAB93C1C14B0A000BF754B /* PlayScene.cpp in Sources */,
 				59E04A271C14B9C1008267B2 /* StatusLayer.cpp in Sources */,
@@ -573,6 +580,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				599822AA1C3027DC007137CC /* GamePlayerLayer.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,

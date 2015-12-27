@@ -1,4 +1,5 @@
 #include "GamePlayerLayer.h"
+#include "Global.h"
 
 USING_NS_CC;
 
@@ -21,21 +22,17 @@ Scene* GamePlayerLayer::createScene()
 bool GamePlayerLayer::init()
 {
     //////////////////////////////
-    // 1. 最初に親クラスの初期化を行う
+    // 最初に親クラスの初期化を行う
     if ( !Layer::init() ){ return false; }
     
-    // 2. スプライトフレームキャッシュを作成する
+    // スプライトフレームキャッシュを作成する
     SpriteFrameCache* cacher = SpriteFrameCache::getInstance();
     
-    // 3. plistを読み込む
+    // スプライトシート(plistファイル)をSpriteFrameCacheクラスにロードする
     cacher->addSpriteFramesWithFile("running.plist");
-    Sprite* spriteRunner = Sprite::create();
     
-    // 4. 主人公の位置を設定する
-    spriteRunner->setPosition(Vec2(80,85));
-    
-    // 5. 移動アクションを作成する
-    // 画像を入れつに読み込む
+    // 走るアクションを作成する
+    // 画像を配列に読み込む
     Vector<SpriteFrame*> frames;
     for(int i = 0; i < 8; i++){
         std::stringstream ss;
@@ -43,32 +40,55 @@ bool GamePlayerLayer::init()
         frames.pushBack(cacher->getSpriteFrameByName(ss.str()));
     }
     
-    // 6. アニメーションを作成する
+    // アニメーションを作成する
     Animation* anim = Animation::createWithSpriteFrames(frames, 0.1f);
-    
-    // 7. アニメーションアクションを作成する
+    // アニメーションアクションを作成する
     Animate* action = Animate::create(anim);
-    
-    // 8. 永久に繰り返すアクションを作成する
+    // 永久に繰り返すアクションを作成する
     RepeatForever* anime = RepeatForever::create(action);
     
-    // アクションを実行する
-    spriteRunner->runAction(anime);
+    // 物理エンジンを通した主人公を作成する
+    Sprite* sprite = Sprite::create();
+    // スプライトのサイズを設定する
+    sprite->setContentSize(Size(62, 56));
+    // スプライトのサイズを取得する
+    Size contentSize = sprite->getContentSize();
+
+    // 走るアクションを実行する
+    sprite->runAction(anime);
+    // スプライトの位置を設定する
+    sprite->setPosition(Vec2(Global::g_runnerStartX, Global::g_groundHeight + contentSize.height * 0.5));
     
-    addChild(spriteRunner);
+    // ランナーをレイヤーに追加する
+    addChild(sprite);
     
-    /*
-    // 2. 主人公のスプライトを作成する
-    auto spriteRunner = Sprite::create("runner.png");
+    // デフォルトのマテリアルを作成する
+    PhysicsMaterial material = PHYSICSSHAPE_MATERIAL_DEFAULT;
+    // 密度を設定する
+    material.density = 1.0f;
+    // 反発係数を設定する
+    material.restitution = 0.0f;
+    // 摩擦係数を設定する
+    material.friction = 0.0f;
     
-    // 3. 主人公の位置を設定する。
-    spriteRunner->setPosition(Vec2(80,85));
+    // 剛体を作成する
+    PhysicsBody* body = PhysicsBody::createBox(contentSize, material);
     
-    // 4. 移動アクションを作成する
-    auto actionTo = MoveTo::create(2, Vec2(300,85));
-    spriteRunner->runAction(actionTo);
-    addChild(spriteRunner);
-     */
+    // 重さを設定する
+    body->setMass(10.0f);
+    // 回転させるか
+    body->setRotationEnable(false);
+    // 重力の影響を受けるか
+    body->setGravityEnable(true);
+    // 衝突する
+    body->setContactTestBitmask(true);
+    // 重力の影響を受けるか
+    body->setDynamic(true);
+    // 撃力を与える
+    body->applyImpulse(Vect(150.0,0.0),Point(0, 0));
+    
+    // スプライトに剛体を関連付ける
+    sprite->setPhysicsBody(body);
     
     return true;
 }
