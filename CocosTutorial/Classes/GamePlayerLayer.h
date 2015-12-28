@@ -10,6 +10,10 @@ public:
     
     virtual bool init();
     
+    float getEyeX();
+    
+    cocos2d::Sprite* spriteRunner;
+    
     // implement the "static create()" method manually
     CREATE_FUNC(GamePlayerLayer);
 };

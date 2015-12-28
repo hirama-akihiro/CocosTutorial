@@ -61,6 +61,9 @@
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
 		599822A91C2948A4007137CC /* Global.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 599822A81C2948A4007137CC /* Global.cpp */; };
 		599822AA1C3027DC007137CC /* GamePlayerLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59E04A231C14B99D008267B2 /* GamePlayerLayer.cpp */; };
+		599822AC1C3048E6007137CC /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 599822AB1C3048E6007137CC /* map.png */; };
+		599822AE1C3048EF007137CC /* map00.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 599822AD1C3048EF007137CC /* map00.tmx */; };
+		599822B01C3048F8007137CC /* map01.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 599822AF1C3048F8007137CC /* map01.tmx */; };
 		59E04A211C14B95E008267B2 /* BackGroundLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59E04A1F1C14B95E008267B2 /* BackGroundLayer.cpp */; };
 		59E04A241C14B99D008267B2 /* GamePlayerLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59E04A231C14B99D008267B2 /* GamePlayerLayer.cpp */; };
 		59E04A271C14B9C1008267B2 /* StatusLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59E04A261C14B9C1008267B2 /* StatusLayer.cpp */; };
@@ -170,6 +173,9 @@
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		599822A71C29478C007137CC /* Global.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
 		599822A81C2948A4007137CC /* Global.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Global.cpp; sourceTree = "<group>"; };
+		599822AB1C3048E6007137CC /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
+		599822AD1C3048EF007137CC /* map00.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map00.tmx; sourceTree = "<group>"; };
+		599822AF1C3048F8007137CC /* map01.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map01.tmx; sourceTree = "<group>"; };
 		59E04A1F1C14B95E008267B2 /* BackGroundLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BackGroundLayer.cpp; sourceTree = "<group>"; };
 		59E04A221C14B976008267B2 /* BackGroundLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackGroundLayer.h; sourceTree = "<group>"; };
 		59E04A231C14B99D008267B2 /* GamePlayerLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GamePlayerLayer.cpp; sourceTree = "<group>"; };
@@ -319,6 +325,9 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				599822AF1C3048F8007137CC /* map01.tmx */,
+				599822AD1C3048EF007137CC /* map00.tmx */,
+				599822AB1C3048E6007137CC /* map.png */,
 				59E04A2C1C1757B7008267B2 /* running.plist */,
 				59E04A2A1C1757A3008267B2 /* running.png */,
 				59FAB9371C14B06000BF754B /* PlayBG.png */,
@@ -529,14 +538,17 @@
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
+				599822B01C3048F8007137CC /* map01.tmx in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				3EACC98F19EE6D4300EB3C5E /* res in Resources */,
 				59FAB92D1C148DEA00BF754B /* start_s.png in Resources */,
+				599822AC1C3048E6007137CC /* map.png in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				59FAB9391C14B06000BF754B /* PlayBG.png in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
+				599822AE1C3048EF007137CC /* map00.tmx in Resources */,
 				46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
 			);

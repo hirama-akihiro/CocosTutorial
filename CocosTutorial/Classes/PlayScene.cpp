@@ -40,13 +40,23 @@ bool PlayScene::init()
     // 物理エンジンを初期化する
     initPhysics();
     
-    // 2. 3つのレイヤーを追加する
+    // 背景レイヤーを作成する
     auto backgroundLayer = BackGroundLayer::create();
+    backgroundLayer->setTag(Global::TagOfLayer::BACKGROUND_LAYER);
     addChild(backgroundLayer);
+    
+    // ゲームプレイヤーレイヤーを作成する
     auto gameplayerLayer = GamePlayerLayer::create();
+    gameplayerLayer->setTag(Global::TagOfLayer::GAMEPLAY_LAYER);
     addChild(gameplayerLayer);
+    
+    // ステータスレイヤーを作成する
     auto statusLayer = StatusLayer::create();
+    statusLayer->setTag(Global::TagOfLayer::STATUS_LAYER);
     addChild(statusLayer);
+    
+    // フレーム毎にupdate関数を呼び出す
+    scheduleUpdate();
     
     return true;
 }
@@ -82,8 +92,23 @@ bool PlayScene::initPhysics()
     
     // スプライトに剛体を関連付ける
     wallBottom->setPhysicsBody(body);
-    
+
     return true;
+}
+
+void PlayScene::update(float dt)
+{
+    // ゲームプレイヤーを取得する
+    GamePlayerLayer* gameplayLayer = (GamePlayerLayer*)this->getChildByTag(Global::TagOfLayer::GAMEPLAY_LAYER);
+    // 最初からの移動量を取得する
+    float eyeX = gameplayLayer->getEyeX();
+    // 位置を設定する
+    gameplayLayer->setPosition(-eyeX, 0);
+    
+    // 背景レイヤーを取得する
+    BackGroundLayer* backgroundLayer = (BackGroundLayer*)this->getChildByTag(Global::TagOfLayer::BACKGROUND_LAYER);
+    // 位置を設定する
+    backgroundLayer->setPosition(-eyeX, 0);
 }
 
 

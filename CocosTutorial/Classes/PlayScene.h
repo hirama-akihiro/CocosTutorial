@@ -9,6 +9,7 @@ public:
     static cocos2d::Scene* createScene();
     
     virtual bool init();
+    virtual void update(float dt);
     virtual bool initPhysics();
     
     // implement the "static create()" method manually

@@ -48,19 +48,19 @@ bool GamePlayerLayer::init()
     RepeatForever* anime = RepeatForever::create(action);
     
     // 物理エンジンを通した主人公を作成する
-    Sprite* sprite = Sprite::create();
+    spriteRunner = Sprite::create();
     // スプライトのサイズを設定する
-    sprite->setContentSize(Size(62, 56));
+    spriteRunner->setContentSize(Size(62, 56));
     // スプライトのサイズを取得する
-    Size contentSize = sprite->getContentSize();
+    Size contentSize = spriteRunner->getContentSize();
 
     // 走るアクションを実行する
-    sprite->runAction(anime);
+    spriteRunner->runAction(anime);
     // スプライトの位置を設定する
-    sprite->setPosition(Vec2(Global::g_runnerStartX, Global::g_groundHeight + contentSize.height * 0.5));
+    spriteRunner->setPosition(Vec2(Global::g_runnerStartX, Global::g_groundHeight + contentSize.height * 0.5));
     
     // ランナーをレイヤーに追加する
-    addChild(sprite);
+    addChild(spriteRunner);
     
     // デフォルトのマテリアルを作成する
     PhysicsMaterial material = PHYSICSSHAPE_MATERIAL_DEFAULT;
@@ -85,11 +85,19 @@ bool GamePlayerLayer::init()
     // 重力の影響を受けるか
     body->setDynamic(true);
     // 撃力を与える
-    body->applyImpulse(Vect(150.0,0.0),Point(0, 0));
+    body->applyImpulse(Vect(600.0,0.0),Point(0, 0));
     
     // スプライトに剛体を関連付ける
-    sprite->setPhysicsBody(body);
+    spriteRunner->setPhysicsBody(body);
     
     return true;
 }
+
+// ゲームプレイヤーの移動量を取得
+float GamePlayerLayer::getEyeX()
+{
+    return spriteRunner->getPositionX() - Global::g_runnerStartX;
+}
+
+
 
