@@ -28,15 +28,35 @@ bool StatusLayer::init()
     Size visibleSize = Director::getInstance()->getVisibleSize();
     
     // 3. ラベルを作成する
-    Label* labelCoin = Label::createWithSystemFont("Coins:0", "Helvetica", 20);
+    labelCoin = Label::createWithSystemFont("Coins:0", "Helvetica", 20);
     labelCoin->setColor(Color3B::BLACK);
     labelCoin->setPosition(Vec2(70, visibleSize.height - 20));
     addChild(labelCoin);
     
-    Label* labelMeter = Label::createWithSystemFont("0M", "Helvetica", 20);
+    labelMeter = Label::createWithSystemFont("0M", "Helvetica", 20);
     labelMeter->setPosition(Vec2(visibleSize.width - 70, visibleSize.height - 20));
     addChild(labelMeter);
     
+    coins = 0;
+    
     return true;
 }
+
+void StatusLayer::updateMeter(float px)
+{
+    std::stringstream ss;
+    ss << (int)(px / 10) << "M";
+    labelMeter->setString(ss.str());
+}
+
+void StatusLayer::addCoin(int num)
+{
+    // コインの数を加算する
+    coins += num;
+    // コイン数のラベルを更新する
+    std::stringstream ss;
+    ss << "Coins:" << coins;
+    labelCoin->setString(ss.str());
+}
+
 

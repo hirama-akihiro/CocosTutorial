@@ -1,6 +1,7 @@
 #include "PlayScene.h"
 #include "BackGroundLayer.h"
 #include "GamePlayerLayer.h"
+#include "GameOverLayer.h"
 #include "StatusLayer.h"
 #include "Global.h"
 
@@ -18,7 +19,7 @@ Scene* PlayScene::createScene()
     world->setGravity(Vec2(0, -350));
     
     // デバッグの為にオブジェクトの衝突判定領域を表示する
-    //world->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+    world->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
     
     // 'layer'はautoreleaseオブジェクト
     Layer* layer = PlayScene::create();
@@ -36,6 +37,7 @@ bool PlayScene::init()
     //////////////////////////////
     // 1. 最初に親クラスの初期化を行う
     if ( !Layer::init() ){ return false; }
+    getEventDispatcher()->removeAllEventListeners();
     
     // 物理エンジンを初期化する
     initPhysics();
@@ -80,7 +82,7 @@ bool PlayScene::initPhysics()
     // 密度を設定する
     material.density = 1.0f;
     // 反発係数を設定する
-    material.restitution = 1.0f;
+    material.restitution = 0.0f;
     // 摩擦係数を設定する
     material.friction = 0.0f;
     // 剛体を作成する
@@ -143,11 +145,27 @@ bool PlayScene::onCollisionBegin(PhysicsContact &contact)
     // 衝突したオブジェクトがコインなら削除リストに追加する
     if(nodeA->getTag() == Global::TagOfSprite::COIN_SPRITE){
         shapesToRemove.pushBack(nodeA);
+        // ステータスレイヤーを取得する
+        auto statusLayer = (StatusLayer*)getChildByTag(Global::TagOfLayer::STATUS_LAYER);
+        // ステータスレイヤーでコインの数を更新する
+        statusLayer->addCoin(1);
     }else if(nodeB->getTag() == Global::TagOfSprite::COIN_SPRITE){
         shapesToRemove.pushBack(nodeB);
+        // ステータスレイヤーを取得する
+        auto statusLayer = (StatusLayer*)getChildByTag(Global::TagOfLayer::STATUS_LAYER);
+        // ステータスレイヤーでコインの数を更新する
+        statusLayer->addCoin(1);
     }else if(nodeA->getTag() == Global::TagOfSprite::ROCK_SPRITE
              || nodeB->getTag() == Global::TagOfSprite::ROCK_SPRITE){
         log("==game over");
+        // ディレクタを取得する
+        auto director = Director::getInstance();
+        // 停止する
+        director->pause();
+        // ゲームオーバレイヤーを作成する
+        auto gameOverLayer = GameOverLayer::create();
+        // ゲームオーバレイヤーをシーンに追加する
+        addChild(gameOverLayer);
     }
     
     return true;

@@ -10,6 +10,16 @@ public:
     
     virtual bool init();
     
+    // コイン数のラベル
+    cocos2d::Label* labelCoin;
+    // プレイヤー移動距離のラベル
+    cocos2d::Label* labelMeter;
+    // コインの数
+    int coins;
+    
+    void updateMeter(float px);
+    void addCoin(int num);
+    
     // implement the "static create()" method manually
     CREATE_FUNC(StatusLayer);
 };

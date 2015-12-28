@@ -1,4 +1,5 @@
 #include "GamePlayerLayer.h"
+#include "StatusLayer.h"
 #include "Global.h"
 
 USING_NS_CC;
@@ -72,7 +73,7 @@ bool GamePlayerLayer::init()
     material.friction = 0.0f;
     
     // 剛体を作成する
-    PhysicsBody* body = PhysicsBody::createBox(contentSize, material);
+    PhysicsBody* body = PhysicsBody::createBox(Size(contentSize.width * 0.5, contentSize.height), material);
     
     // 重さを設定する
     body->setMass(10.0f);
@@ -85,7 +86,7 @@ bool GamePlayerLayer::init()
     // 重力の影響を受けるか
     body->setDynamic(true);
     // 撃力を与える
-    body->applyImpulse(Vect(600.0,0.0),Point(0, 0));
+    body->applyImpulse(Vect(800.0,0.0),Point(0, 0));
     
     // スプライトに剛体を関連付ける
     spriteRunner->setPhysicsBody(body);
@@ -93,13 +94,49 @@ bool GamePlayerLayer::init()
     // プレイヤーにタグ付け
     spriteRunner->setTag(Global::TagOfSprite::RUNNER_SPRITE);
     
+    // update関数が呼ばれるようにする
+    scheduleUpdate();
+    
+    // シングルタッチイベントリスナーを作成する
+    auto listener = EventListenerTouchOneByOne::create();
+    // スワロータッチモードにするとonTouchBeganメソッドはタッチイベント他では使われない
+    listener->onTouchBegan = CC_CALLBACK_2(GamePlayerLayer::onTouchBegan, this);
+    // 優先度100でディスパッチャーに登録
+    getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
+    
     return true;
+}
+
+void GamePlayerLayer::update(float dt)
+{
+    // 親のオブジェクトを取得する
+    auto parent = getParent();
+    // ステータスレイヤーを取得する
+    auto statusLayer = (StatusLayer*)(parent->getChildByTag(Global::TagOfLayer::STATUS_LAYER));
+    // ステータスレイヤーで移動距離を更新する
+    statusLayer->updateMeter(getEyeX());
+    
+    // プレイヤーの座標が地面以下に埋まった場合、地面の高さに戻す
+    auto pos = spriteRunner->getPosition();
+    auto size = spriteRunner->getContentSize();
+    if(pos.y - size.height * 0.5 < Global::g_groundHeight){
+        spriteRunner->setPosition(Vec2(pos.x, Global::g_groundHeight + size.height * 0.5));
+    }
 }
 
 // ゲームプレイヤーの移動量を取得
 float GamePlayerLayer::getEyeX()
 {
     return spriteRunner->getPositionX() - Global::g_runnerStartX;
+}
+
+bool GamePlayerLayer::onTouchBegan(Touch *touch, Event *event)
+{
+    log("PlayScene::ccTouchBegin");
+    // 上向きの撃力を与える
+    spriteRunner->getPhysicsBody()->applyImpulse(Vect(0, 3000), Point::ZERO);
+    
+    return true;
 }
 
 

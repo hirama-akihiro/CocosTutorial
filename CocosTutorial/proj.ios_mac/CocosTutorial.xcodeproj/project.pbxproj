@@ -70,6 +70,9 @@
 		599822C01C313B12007137CC /* rock.png in Resources */ = {isa = PBXBuildFile; fileRef = 599822BF1C313B12007137CC /* rock.png */; };
 		599822C31C314040007137CC /* background.plist in Resources */ = {isa = PBXBuildFile; fileRef = 599822C11C314040007137CC /* background.plist */; };
 		599822C41C314040007137CC /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 599822C21C314040007137CC /* background.png */; };
+		599822C71C3151CB007137CC /* GameOverLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 599822C61C3151CB007137CC /* GameOverLayer.cpp */; };
+		599822CA1C31567A007137CC /* restart_n.png in Resources */ = {isa = PBXBuildFile; fileRef = 599822C81C31567A007137CC /* restart_n.png */; };
+		599822CB1C31567A007137CC /* restart_s.png in Resources */ = {isa = PBXBuildFile; fileRef = 599822C91C31567A007137CC /* restart_s.png */; };
 		59E04A211C14B95E008267B2 /* BackGroundLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59E04A1F1C14B95E008267B2 /* BackGroundLayer.cpp */; };
 		59E04A241C14B99D008267B2 /* GamePlayerLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59E04A231C14B99D008267B2 /* GamePlayerLayer.cpp */; };
 		59E04A271C14B9C1008267B2 /* StatusLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59E04A261C14B9C1008267B2 /* StatusLayer.cpp */; };
@@ -190,6 +193,10 @@
 		599822BF1C313B12007137CC /* rock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rock.png; sourceTree = "<group>"; };
 		599822C11C314040007137CC /* background.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = background.plist; sourceTree = "<group>"; };
 		599822C21C314040007137CC /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		599822C51C3151B8007137CC /* GameOverLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameOverLayer.h; sourceTree = "<group>"; };
+		599822C61C3151CB007137CC /* GameOverLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameOverLayer.cpp; sourceTree = "<group>"; };
+		599822C81C31567A007137CC /* restart_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restart_n.png; sourceTree = "<group>"; };
+		599822C91C31567A007137CC /* restart_s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restart_s.png; sourceTree = "<group>"; };
 		59E04A1F1C14B95E008267B2 /* BackGroundLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BackGroundLayer.cpp; sourceTree = "<group>"; };
 		59E04A221C14B976008267B2 /* BackGroundLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackGroundLayer.h; sourceTree = "<group>"; };
 		59E04A231C14B99D008267B2 /* GamePlayerLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GamePlayerLayer.cpp; sourceTree = "<group>"; };
@@ -339,6 +346,8 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				599822C81C31567A007137CC /* restart_n.png */,
+				599822C91C31567A007137CC /* restart_s.png */,
 				599822C11C314040007137CC /* background.plist */,
 				599822C21C314040007137CC /* background.png */,
 				599822BF1C313B12007137CC /* rock.png */,
@@ -387,6 +396,8 @@
 				599822B71C3132C4007137CC /* Coin.cpp */,
 				599822BC1C313A7E007137CC /* Rock.h */,
 				599822BD1C313A89007137CC /* Rock.cpp */,
+				599822C51C3151B8007137CC /* GameOverLayer.h */,
+				599822C61C3151CB007137CC /* GameOverLayer.cpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -559,6 +570,7 @@
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
 				59E04A2B1C1757A3008267B2 /* running.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
+				599822CA1C31567A007137CC /* restart_n.png in Resources */,
 				599822BB1C313618007137CC /* coin0.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
@@ -569,6 +581,7 @@
 				3EACC98F19EE6D4300EB3C5E /* res in Resources */,
 				59FAB92D1C148DEA00BF754B /* start_s.png in Resources */,
 				599822AC1C3048E6007137CC /* map.png in Resources */,
+				599822CB1C31567A007137CC /* restart_s.png in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
@@ -601,6 +614,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				599822C71C3151CB007137CC /* GameOverLayer.cpp in Sources */,
 				59E04A211C14B95E008267B2 /* BackGroundLayer.cpp in Sources */,
 				59FAB9361C14A72D00BF754B /* MenuScene.cpp in Sources */,
 				599822A91C2948A4007137CC /* Global.cpp in Sources */,
