@@ -73,6 +73,9 @@
 		599822C71C3151CB007137CC /* GameOverLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 599822C61C3151CB007137CC /* GameOverLayer.cpp */; };
 		599822CA1C31567A007137CC /* restart_n.png in Resources */ = {isa = PBXBuildFile; fileRef = 599822C81C31567A007137CC /* restart_n.png */; };
 		599822CB1C31567A007137CC /* restart_s.png in Resources */ = {isa = PBXBuildFile; fileRef = 599822C91C31567A007137CC /* restart_s.png */; };
+		599822CF1C3162DC007137CC /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 599822CC1C3162DC007137CC /* background.mp3 */; };
+		599822D01C3162DC007137CC /* jump.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 599822CD1C3162DC007137CC /* jump.mp3 */; };
+		599822D11C3162DC007137CC /* pickup_coin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 599822CE1C3162DC007137CC /* pickup_coin.mp3 */; };
 		59E04A211C14B95E008267B2 /* BackGroundLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59E04A1F1C14B95E008267B2 /* BackGroundLayer.cpp */; };
 		59E04A241C14B99D008267B2 /* GamePlayerLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59E04A231C14B99D008267B2 /* GamePlayerLayer.cpp */; };
 		59E04A271C14B9C1008267B2 /* StatusLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59E04A261C14B9C1008267B2 /* StatusLayer.cpp */; };
@@ -197,6 +200,9 @@
 		599822C61C3151CB007137CC /* GameOverLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameOverLayer.cpp; sourceTree = "<group>"; };
 		599822C81C31567A007137CC /* restart_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restart_n.png; sourceTree = "<group>"; };
 		599822C91C31567A007137CC /* restart_s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restart_s.png; sourceTree = "<group>"; };
+		599822CC1C3162DC007137CC /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
+		599822CD1C3162DC007137CC /* jump.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jump.mp3; sourceTree = "<group>"; };
+		599822CE1C3162DC007137CC /* pickup_coin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pickup_coin.mp3; sourceTree = "<group>"; };
 		59E04A1F1C14B95E008267B2 /* BackGroundLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BackGroundLayer.cpp; sourceTree = "<group>"; };
 		59E04A221C14B976008267B2 /* BackGroundLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackGroundLayer.h; sourceTree = "<group>"; };
 		59E04A231C14B99D008267B2 /* GamePlayerLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GamePlayerLayer.cpp; sourceTree = "<group>"; };
@@ -346,6 +352,9 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				599822CC1C3162DC007137CC /* background.mp3 */,
+				599822CD1C3162DC007137CC /* jump.mp3 */,
+				599822CE1C3162DC007137CC /* pickup_coin.mp3 */,
 				599822C81C31567A007137CC /* restart_n.png */,
 				599822C91C31567A007137CC /* restart_s.png */,
 				599822C11C314040007137CC /* background.plist */,
@@ -567,6 +576,7 @@
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				59FAB93A1C14B06000BF754B /* runner.png in Resources */,
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
+				599822D11C3162DC007137CC /* pickup_coin.mp3 in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
 				59E04A2B1C1757A3008267B2 /* running.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
@@ -582,7 +592,9 @@
 				59FAB92D1C148DEA00BF754B /* start_s.png in Resources */,
 				599822AC1C3048E6007137CC /* map.png in Resources */,
 				599822CB1C31567A007137CC /* restart_s.png in Resources */,
+				599822D01C3162DC007137CC /* jump.mp3 in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
+				599822CF1C3162DC007137CC /* background.mp3 in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				59FAB9391C14B06000BF754B /* PlayBG.png in Resources */,

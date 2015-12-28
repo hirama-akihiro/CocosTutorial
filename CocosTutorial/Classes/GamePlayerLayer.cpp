@@ -1,6 +1,7 @@
 #include "GamePlayerLayer.h"
 #include "StatusLayer.h"
 #include "Global.h"
+#include <SimpleAudioEngine.h>
 
 USING_NS_CC;
 
@@ -86,7 +87,7 @@ bool GamePlayerLayer::init()
     // 重力の影響を受けるか
     body->setDynamic(true);
     // 撃力を与える
-    body->applyImpulse(Vect(800.0,0.0),Point(0, 0));
+    body->applyImpulse(Vect(1000.0,0.0),Point(0, 0));
     
     // スプライトに剛体を関連付ける
     spriteRunner->setPhysicsBody(body);
@@ -135,6 +136,11 @@ bool GamePlayerLayer::onTouchBegan(Touch *touch, Event *event)
     log("PlayScene::ccTouchBegin");
     // 上向きの撃力を与える
     spriteRunner->getPhysicsBody()->applyImpulse(Vect(0, 3000), Point::ZERO);
+    
+    // オーディオエンジンを取得する
+    auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+    // ジャンプ音を鳴らす
+    audio->playEffect("jump.mp3");
     
     return true;
 }

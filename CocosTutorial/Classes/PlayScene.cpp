@@ -4,6 +4,7 @@
 #include "GameOverLayer.h"
 #include "StatusLayer.h"
 #include "Global.h"
+#include <SimpleAudioEngine.h>
 
 USING_NS_CC;
 
@@ -19,7 +20,7 @@ Scene* PlayScene::createScene()
     world->setGravity(Vec2(0, -350));
     
     // デバッグの為にオブジェクトの衝突判定領域を表示する
-    world->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+    //world->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
     
     // 'layer'はautoreleaseオブジェクト
     Layer* layer = PlayScene::create();
@@ -59,6 +60,10 @@ bool PlayScene::init()
     
     // フレーム毎にupdate関数を呼び出す
     scheduleUpdate();
+    
+    // BGM再生
+    auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+    audio->playBackgroundMusic("background.mp3", true);
     
     return true;
 }
@@ -142,6 +147,9 @@ bool PlayScene::onCollisionBegin(PhysicsContact &contact)
     
     if(nodeA->getTag() < 0 || nodeB->getTag() < 0){ return true; }
     
+    // オーディオエンジンを取得する
+    auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+    
     // 衝突したオブジェクトがコインなら削除リストに追加する
     if(nodeA->getTag() == Global::TagOfSprite::COIN_SPRITE){
         shapesToRemove.pushBack(nodeA);
@@ -149,15 +157,21 @@ bool PlayScene::onCollisionBegin(PhysicsContact &contact)
         auto statusLayer = (StatusLayer*)getChildByTag(Global::TagOfLayer::STATUS_LAYER);
         // ステータスレイヤーでコインの数を更新する
         statusLayer->addCoin(1);
+        audio->playEffect("pickup_coin.mp3");
     }else if(nodeB->getTag() == Global::TagOfSprite::COIN_SPRITE){
         shapesToRemove.pushBack(nodeB);
         // ステータスレイヤーを取得する
         auto statusLayer = (StatusLayer*)getChildByTag(Global::TagOfLayer::STATUS_LAYER);
         // ステータスレイヤーでコインの数を更新する
         statusLayer->addCoin(1);
+        audio->playEffect("pickup_coin.mp3");
     }else if(nodeA->getTag() == Global::TagOfSprite::ROCK_SPRITE
              || nodeB->getTag() == Global::TagOfSprite::ROCK_SPRITE){
         log("==game over");
+        
+        // BGMを停止する
+        audio->stopBackgroundMusic();
+        
         // ディレクタを取得する
         auto director = Director::getInstance();
         // 停止する

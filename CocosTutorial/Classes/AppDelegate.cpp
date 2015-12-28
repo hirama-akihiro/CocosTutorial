@@ -1,5 +1,6 @@
 #include "AppDelegate.h"
 #include "MenuScene.h"
+#include <SimpleAudioEngine.h>
 
 USING_NS_CC;
 
@@ -49,7 +50,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     glView->setDesignResolutionSize(480, 320, ResolutionPolicy::SHOW_ALL);
     
     // ディスプレイへのFPS表示を許可
-    director->setDisplayStats(true);
+    //director->setDisplayStats(true);
     
     // ゲームのFSPを設定
     director->setAnimationInterval(1.0 / 60.0);
@@ -118,6 +119,9 @@ void AppDelegate::applicationDidEnterBackground()
 
     // if you use SimpleAudioEngine, it must be pause
     // SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
+    
+    CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
+    CocosDenshion::SimpleAudioEngine::getInstance()->pauseAllEffects();
 }
 
 // this function will be called when the app is active again
@@ -127,4 +131,7 @@ void AppDelegate::applicationWillEnterForeground()
 
     // if you use SimpleAudioEngine, it must resume here
     // SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
+    
+    CocosDenshion::SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
+    CocosDenshion::SimpleAudioEngine::getInstance()->resumeAllEffects();
 }
