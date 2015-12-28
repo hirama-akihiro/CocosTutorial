@@ -18,7 +18,7 @@ Scene* PlayScene::createScene()
     world->setGravity(Vec2(0, -350));
     
     // デバッグの為にオブジェクトの衝突判定領域を表示する
-    world->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+    //world->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
     
     // 'layer'はautoreleaseオブジェクト
     Layer* layer = PlayScene::create();
@@ -92,6 +92,11 @@ bool PlayScene::initPhysics()
     
     // スプライトに剛体を関連付ける
     wallBottom->setPhysicsBody(body);
+    
+    // プレイヤーとオブジェクトとの衝突判定を作成してディスパッチャーに追加する
+    auto collisionCoinListener = EventListenerPhysicsContact::create();
+    collisionCoinListener->onContactBegin = CC_CALLBACK_1(PlayScene::onCollisionBegin, this);
+    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(collisionCoinListener, this);
 
     return true;
 }
@@ -109,8 +114,44 @@ void PlayScene::update(float dt)
     BackGroundLayer* backgroundLayer = (BackGroundLayer*)this->getChildByTag(Global::TagOfLayer::BACKGROUND_LAYER);
     // 位置を設定する
     backgroundLayer->setPosition(-eyeX, 0);
+    
+    // 不要になったスプライトを背景レイヤーから削除します
+    for (int i = 0; i < shapesToRemove.size(); ++i) {
+        // 形状を取得する
+        auto node = shapesToRemove.at(i);
+        // 背景レイヤーを取得する
+        backgroundLayer->removeChild(node);
+    }
+    // 消すオブジェクトのリストクリアする
+    shapesToRemove.clear();
 }
 
+bool PlayScene::onCollisionBegin(PhysicsContact &contact)
+{
+    // 1つ目の衝突形状を取得する
+    auto shapeA = contact.getShapeA();
+    auto nodeA = shapeA->getBody()->getNode();
+
+    // 2つ目の衝突形状を取得する
+    auto shapeB = contact.getShapeB();
+    auto nodeB = shapeB->getBody()->getNode();
+    
+    log("contact a = %d b = %d", nodeA->getTag(), nodeB->getTag());
+    
+    if(nodeA->getTag() < 0 || nodeB->getTag() < 0){ return true; }
+    
+    // 衝突したオブジェクトがコインなら削除リストに追加する
+    if(nodeA->getTag() == Global::TagOfSprite::COIN_SPRITE){
+        shapesToRemove.pushBack(nodeA);
+    }else if(nodeB->getTag() == Global::TagOfSprite::COIN_SPRITE){
+        shapesToRemove.pushBack(nodeB);
+    }else if(nodeA->getTag() == Global::TagOfSprite::ROCK_SPRITE
+             || nodeB->getTag() == Global::TagOfSprite::ROCK_SPRITE){
+        log("==game over");
+    }
+    
+    return true;
+}
 
 
 

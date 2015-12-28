@@ -15,6 +15,13 @@ public:
         GAMEPLAY_LAYER = 1,
         STATUS_LAYER = 2
     };
+    
+    // Spriteタグ設定
+    enum TagOfSprite{
+        RUNNER_SPRITE = 0,
+        COIN_SPRITE = 1,
+        ROCK_SPRITE = 2
+    };
 };
 
 #endif

@@ -64,6 +64,12 @@
 		599822AC1C3048E6007137CC /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 599822AB1C3048E6007137CC /* map.png */; };
 		599822AE1C3048EF007137CC /* map00.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 599822AD1C3048EF007137CC /* map00.tmx */; };
 		599822B01C3048F8007137CC /* map01.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 599822AF1C3048F8007137CC /* map01.tmx */; };
+		599822B91C3132CD007137CC /* Coin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 599822B71C3132C4007137CC /* Coin.cpp */; };
+		599822BB1C313618007137CC /* coin0.png in Resources */ = {isa = PBXBuildFile; fileRef = 599822BA1C313618007137CC /* coin0.png */; };
+		599822BE1C313A89007137CC /* Rock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 599822BD1C313A89007137CC /* Rock.cpp */; };
+		599822C01C313B12007137CC /* rock.png in Resources */ = {isa = PBXBuildFile; fileRef = 599822BF1C313B12007137CC /* rock.png */; };
+		599822C31C314040007137CC /* background.plist in Resources */ = {isa = PBXBuildFile; fileRef = 599822C11C314040007137CC /* background.plist */; };
+		599822C41C314040007137CC /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 599822C21C314040007137CC /* background.png */; };
 		59E04A211C14B95E008267B2 /* BackGroundLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59E04A1F1C14B95E008267B2 /* BackGroundLayer.cpp */; };
 		59E04A241C14B99D008267B2 /* GamePlayerLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59E04A231C14B99D008267B2 /* GamePlayerLayer.cpp */; };
 		59E04A271C14B9C1008267B2 /* StatusLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59E04A261C14B9C1008267B2 /* StatusLayer.cpp */; };
@@ -176,6 +182,14 @@
 		599822AB1C3048E6007137CC /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
 		599822AD1C3048EF007137CC /* map00.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map00.tmx; sourceTree = "<group>"; };
 		599822AF1C3048F8007137CC /* map01.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map01.tmx; sourceTree = "<group>"; };
+		599822B61C313248007137CC /* Coin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Coin.h; sourceTree = "<group>"; };
+		599822B71C3132C4007137CC /* Coin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Coin.cpp; sourceTree = "<group>"; };
+		599822BA1C313618007137CC /* coin0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin0.png; sourceTree = "<group>"; };
+		599822BC1C313A7E007137CC /* Rock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rock.h; sourceTree = "<group>"; };
+		599822BD1C313A89007137CC /* Rock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Rock.cpp; sourceTree = "<group>"; };
+		599822BF1C313B12007137CC /* rock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rock.png; sourceTree = "<group>"; };
+		599822C11C314040007137CC /* background.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = background.plist; sourceTree = "<group>"; };
+		599822C21C314040007137CC /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		59E04A1F1C14B95E008267B2 /* BackGroundLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BackGroundLayer.cpp; sourceTree = "<group>"; };
 		59E04A221C14B976008267B2 /* BackGroundLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackGroundLayer.h; sourceTree = "<group>"; };
 		59E04A231C14B99D008267B2 /* GamePlayerLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GamePlayerLayer.cpp; sourceTree = "<group>"; };
@@ -325,6 +339,10 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				599822C11C314040007137CC /* background.plist */,
+				599822C21C314040007137CC /* background.png */,
+				599822BF1C313B12007137CC /* rock.png */,
+				599822BA1C313618007137CC /* coin0.png */,
 				599822AF1C3048F8007137CC /* map01.tmx */,
 				599822AD1C3048EF007137CC /* map00.tmx */,
 				599822AB1C3048E6007137CC /* map.png */,
@@ -365,6 +383,10 @@
 				59E04A281C14B9CC008267B2 /* StatusLayer.h */,
 				599822A71C29478C007137CC /* Global.h */,
 				599822A81C2948A4007137CC /* Global.cpp */,
+				599822B61C313248007137CC /* Coin.h */,
+				599822B71C3132C4007137CC /* Coin.cpp */,
+				599822BC1C313A7E007137CC /* Rock.h */,
+				599822BD1C313A89007137CC /* Rock.cpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -528,17 +550,21 @@
 				46880B8119C43A67006E1F66 /* HelloWorld.png in Resources */,
 				46880B7D19C43A67006E1F66 /* CloseSelected.png in Resources */,
 				59FAB92C1C148DEA00BF754B /* start_n.png in Resources */,
+				599822C41C314040007137CC /* background.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
+				599822C01C313B12007137CC /* rock.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				59FAB93A1C14B06000BF754B /* runner.png in Resources */,
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
 				59E04A2B1C1757A3008267B2 /* running.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
+				599822BB1C313618007137CC /* coin0.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				599822B01C3048F8007137CC /* map01.tmx in Resources */,
+				599822C31C314040007137CC /* background.plist in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				3EACC98F19EE6D4300EB3C5E /* res in Resources */,
 				59FAB92D1C148DEA00BF754B /* start_s.png in Resources */,
@@ -580,7 +606,9 @@
 				599822A91C2948A4007137CC /* Global.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				59FAB93C1C14B0A000BF754B /* PlayScene.cpp in Sources */,
+				599822B91C3132CD007137CC /* Coin.cpp in Sources */,
 				59E04A271C14B9C1008267B2 /* StatusLayer.cpp in Sources */,
+				599822BE1C313A89007137CC /* Rock.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,

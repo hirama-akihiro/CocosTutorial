@@ -19,8 +19,12 @@ public:
     float mapWidth;
     // 表示中のマップのインデックス
     int mapIndex;
+    // マップ上のオブジェクト
+    cocos2d::Vector<cocos2d::Node*> objects;
     
     bool checkAndReload(float eyeX);
+    void loadObjects(cocos2d::TMXTiledMap* map, int mapIndex);
+    void removeObjects(int mapIndex);
     
     // implement the "static create()" method manually
     CREATE_FUNC(BackGroundLayer);

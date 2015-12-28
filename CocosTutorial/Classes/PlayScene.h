@@ -12,6 +12,11 @@ public:
     virtual void update(float dt);
     virtual bool initPhysics();
     
+    virtual bool onCollisionBegin(cocos2d::PhysicsContact &contact);
+    
+    // 削除するスプライト
+    cocos2d::Vector<Node*> shapesToRemove;
+    
     // implement the "static create()" method manually
     CREATE_FUNC(PlayScene);
 };

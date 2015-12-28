@@ -90,6 +90,9 @@ bool GamePlayerLayer::init()
     // スプライトに剛体を関連付ける
     spriteRunner->setPhysicsBody(body);
     
+    // プレイヤーにタグ付け
+    spriteRunner->setTag(Global::TagOfSprite::RUNNER_SPRITE);
+    
     return true;
 }
 

@@ -1,6 +1,8 @@
 #include "BackGroundLayer.h"
 #include "GamePlayerLayer.h"
 #include "Global.h"
+#include "Coin.h"
+#include "Rock.h"
 
 USING_NS_CC;
 
@@ -23,19 +25,14 @@ Scene* BackGroundLayer::createScene()
 bool BackGroundLayer::init()
 {
     //////////////////////////////
-    // 1. 最初に親クラスの初期化を行う
+    // 最初に親クラスの初期化を行う
     if ( !Layer::init() ){ return false; }
     
-    // 2. 画面サイズを取得する
+    // 画面サイズを取得する
     Size visibleSize = Director::getInstance()->getVisibleSize();
     
-    // 3. 中心を計算する
+    // 中心を計算する
     Vec2 centerPos = visibleSize / 2;
-    
-    // 4. 背景画像を作成し、位置と中心を設定する。
-//    auto spriteBG = Sprite::create("PlayBG.png");
-//    spriteBG->setPosition(centerPos);
-//    addChild(spriteBG);
     
     // タイルマップ0をロードする
     map00 = TMXTiledMap::create("map00.tmx");
@@ -46,12 +43,20 @@ bool BackGroundLayer::init()
     Size contentSize = map00->getContentSize();
     // タイルマップの幅を覚えておく
     mapWidth = contentSize.width;
-    log("%f",mapWidth);
     
     // タイルマップ0の位置を(0,0)に設定する
     map00->setPosition(0, 0);
     // タイルマップ1の位置をタイルマップ0の右隣に設定する
     map01->setPosition(mapWidth, 0);
+    
+    // スプライトフレームキャッシュを作成する
+    SpriteFrameCache* spriteFrameCache = SpriteFrameCache::getInstance();
+    // スプライトシート(plistファイル)をSpriteFrameCacheクラスにロードする
+    spriteFrameCache->addSpriteFramesWithFile("background.plist");
+    
+    // マップ0,1からオブジェクトをロードする
+    loadObjects(map00, 0);
+    loadObjects(map01, 1);
     
     // レイヤーに追加する
     addChild(map00);
@@ -84,10 +89,17 @@ bool BackGroundLayer::checkAndReload(float eyeX)
     if(newMapIndex % 2 == 0){
         // マップが偶数番目ならマップ1をマップ0の右に位置付ける
         map01->setPositionX(mapWidth * (newMapIndex + 1));
+        // マップ1のオブジェクトをロードする
+        loadObjects(map01, newMapIndex + 1);
     }else{
         // そうでないならマップ0をマップ1の右に位置付ける
         map00->setPositionX(mapWidth * (newMapIndex + 1));
+        // マップ0のオブジェクトをロードする
+        loadObjects(map00, newMapIndex + 1);
     }
+    
+    // 不要になったオブジェクトを削除する
+    removeObjects(newMapIndex + 1);
     
     // １つ目のマップを覚えておく
     mapIndex = newMapIndex;
@@ -95,4 +107,64 @@ bool BackGroundLayer::checkAndReload(float eyeX)
     return true;
 }
 
+void BackGroundLayer::loadObjects(TMXTiledMap *map, int mapIndex)
+{
+    // コインのオブジェクトグループを取得する
+    TMXObjectGroup* coinGroup = map->getObjectGroup("coin");
+    // コインオブジェクトの配列を取得する
+    ValueVector coinArray = coinGroup->getObjects();
+    // コインオブジェクトをリストに追加する
+    for(int i = 0; i < coinArray.size(); ++i){
+        // オブジェクトを取得する
+        Value object = coinArray.at(i);
+        // objectに設定されているプロパティなどを取得
+        ValueMap objectInfo = object.asValueMap();
+        // コインオブジェクトを作成する
+        Coin* coin = Coin::create(this,
+                                  Vec2(objectInfo.at("x").asFloat() + mapWidth * mapIndex,
+                                       objectInfo.at("y").asFloat()));
+        // コインオブジェクトのマップインデックスを設定する
+        coin->setMapIndex(mapIndex);
+        // コインオブジェクトをリストに追加する
+        objects.pushBack(coin);
+    }
+    
+    // 岩のオブジェクトグループを取得する
+    TMXObjectGroup* rockGroup = map->getObjectGroup("rock");
+    // 岩オブジェクトの配列を取得する
+    ValueVector rockArray = rockGroup->getObjects();
+    // 岩オブジェクトをリストに追加する
+    for(int i = 0; i < rockArray.size(); ++i){
+        // オブジェクトを取得する
+        Value object = rockArray.at(i);
+        // objectに設定されているプロパティなどを取得
+        ValueMap objectInfo = object.asValueMap();
+        // コインオブジェクトを作成する
+        Rock* rock = Rock::create(this,objectInfo.at("x").asFloat() + mapWidth * mapIndex);
+        // コインオブジェクトのマップインデックスを設定する
+        rock->setMapIndex(mapIndex);
+        // コインオブジェクトをリストに追加する
+        objects.pushBack(rock);
+    }
+}
 
+void BackGroundLayer::removeObjects(int mapIndex)
+{
+    for(int i = 0; i < objects.size(); ++i){
+        // 削除するオブジェクトを取得する
+        Node* obj = objects.at(i);
+        if(obj->getTag() == Global::TagOfSprite::COIN_SPRITE){
+            // コインの場合
+            Coin* coin = (Coin*)obj;
+            if(coin->getMapIndex() == mapIndex){
+                coin->removeFromParent();
+            }
+        }else if(obj->getTag() == Global::TagOfSprite::ROCK_SPRITE){
+            // 岩の場合
+            Rock* rock = (Rock*)obj;
+            if(rock->getMapIndex() == mapIndex){
+                rock->removeFromParent();
+            }
+        }
+    }
+}

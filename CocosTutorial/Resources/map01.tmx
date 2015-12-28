@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="20" height="10" tilewidth="32" tileheight="32">
- <tileset firstgid="1" name="map" tilewidth="32" tileheight="32">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="10" tilewidth="32" tileheight="32" nextobjectid="10">
+ <tileset firstgid="1" name="map" tilewidth="32" tileheight="32" tilecount="16">
   <image source="map.png" width="128" height="128"/>
  </tileset>
  <layer name="background" width="20" height="10">
@@ -13,4 +13,15 @@
    eJxjYBgFo4B4wA/EAlSkBzsAAPeoATc=
   </data>
  </layer>
+ <objectgroup name="coin">
+  <object id="5" x="154" y="132"/>
+  <object id="6" x="465" y="123"/>
+  <object id="7" x="257" y="201"/>
+  <object id="8" x="305" y="202"/>
+  <object id="9" x="364" y="204"/>
+ </objectgroup>
+ <objectgroup name="rock">
+  <object id="3" x="131" y="178" width="51" height="49"/>
+  <object id="4" x="436" y="176" width="48" height="50"/>
+ </objectgroup>
 </map>
